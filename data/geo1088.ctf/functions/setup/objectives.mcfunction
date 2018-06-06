@@ -11,5 +11,10 @@ scoreboard objectives add StealsFlag dummy Steals a flag this tick?
 scoreboard objectives add ReplacesFlag dummy Replaces a flag this tick?
 scoreboard objectives add CapturesFlag dummy Captures a flag this tick?
 
+# Trigger objectives for joining teams (enabled in main every tick)
+scoreboard objectives add JoinsRed trigger Joins the Red team this tick?
+scoreboard objectives add JoinsBlue trigger Joins the Blue team this tick?
+scoreboard objectives add JoinsSpec trigger Joins the spectators this tick?
+
 # Objectives for armor stands
 scoreboard objectives add FlagPresent dummy Flag present?
