@@ -21,6 +21,7 @@ tellraw @a[team=!Red,scores={CapturesFlag=0}] [{"selector": "@p[scores={Captures
 
 # Sounds
 execute as @a[team=!Red] at @s run playsound minecraft:entity.firework.twinkle_far master @s
+execute as @a[team=!Red] at @s run playsound minecraft:entity.player.levelup master @s
 execute as @a[team=Red] at @s run playsound minecraft:entity.generic.explode master @s
 
 # Done!
