@@ -1,0 +1,24 @@
+# Steal Red - When the red flag is stolen.
+
+# Scoreboard handling
+scoreboard players set @e[team=RedData] FlagPresent 0
+scoreboard players set @p[scores={StealsFlag=1},team=!Red] CarryingRedFlag 1
+
+# Physical replacement/effects
+execute at @e[team=RedData] run setblock ~ ~-1 ~ air replace
+execute at @e[team=RedData] run particle minecraft:smoke ~ ~-1 ~ 0.5 1 0.5 0.15 200
+replaceitem entity @p[scores={StealsFlag=1},team=!Red] armor.head red_banner{BlockEntityTag:{Patterns:[{Pattern:rd,Color:6},{Pattern:sc,Color:0}]}}
+data merge entity @e[team=RedData,limit=1] {CustomName:"\"Flag stolen!\"",CustomNameVisible:1b}
+
+# Text
+tellraw @a[team=Red] [{"selector": "@p[scores={StealsFlag=1},team=!Red]", "color": "yellow"}, " has ", {"text": "stolen your flag!", "color": "gold"}]
+tellraw @a[team=!Red,scores={StealsFlag=1}] [{"text": "You've stolen the enemy flag!", "color": "green"}]
+tellraw @a[team=!Red,scores={StealsFlag=0}] [{"selector": "@p[scores={StealsFlag=1},team=!Red]", "color": "yellow"}, " has ", {"text": "stolen the enemy flag!", "color": "green"}]
+
+# Sound
+# TODO: is there an easier way to do sound than this execute thing?
+execute as @a[team=!Red,scores={StealsFlag=1}] at @s run playsound minecraft:entity.experience_orb.pickup master @s
+execute as @a[team=Red] at @s run playsound minecraft:entity.generic.explode master @s
+
+# Done!
+scoreboard players set @p[scores={StealsFlag=1},team=!Red] StealsFlag 0

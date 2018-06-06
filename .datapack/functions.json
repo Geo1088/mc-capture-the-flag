@@ -1,0 +1,1 @@
+{"geo1088.ctf":{"$func":["game","loadmsg"],"setup":{"$func":["objectives"]},"events":{"teamjoin":{"$func":["red","blue"]},"capture":{"$func":["blue","red"]},"steal":{"$func":["blue","red"]},"return":{"$func":["red","blue"]}}}}
