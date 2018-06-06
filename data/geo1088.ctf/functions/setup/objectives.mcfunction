@@ -1,4 +1,5 @@
 # Objectives - Set up objectives used for the games.
+# TODO: Delete and remake objectives on every load for portability(?)
 
 # Objectives for players
 scoreboard objectives add Health health Health

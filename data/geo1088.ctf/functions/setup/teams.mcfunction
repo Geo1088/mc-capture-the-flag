@@ -1,4 +1,5 @@
 # Teams - Create and set up teams for the game.
+# TODO: Delete and remake teams on every load for portability(?)
 
 team add Red Red Team
 team option Red color red
