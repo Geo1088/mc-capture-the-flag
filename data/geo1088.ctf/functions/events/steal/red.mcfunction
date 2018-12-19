@@ -5,9 +5,9 @@ scoreboard players set @e[team=RedData] FlagPresent 0
 scoreboard players set @p[scores={StealsFlag=1},team=Blue] CarryingRedFlag 1
 
 # Physical replacement/effects
-execute at @e[team=RedData] run setblock ~ ~-1 ~ air replace
+execute at @e[team=RedData] run setblock ~ ~-1 ~ minecraft:air replace
 execute at @e[team=RedData] run particle minecraft:smoke ~ ~-1 ~ 0.5 1 0.5 0.15 200
-replaceitem entity @p[scores={StealsFlag=1},team=Blue] armor.head red_banner{BlockEntityTag:{Patterns:[{Pattern:rd,Color:6},{Pattern:sc,Color:0}]}}
+replaceitem entity @p[scores={StealsFlag=1},team=Blue] armor.head minecraft:red_banner{BlockEntityTag:{Patterns:[{Pattern:rd,Color:6},{Pattern:sc,Color:0}]}}
 data merge entity @e[team=RedData,limit=1] {CustomName:"\"Flag stolen!\"",CustomNameVisible:1b}
 
 # Text

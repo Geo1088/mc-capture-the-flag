@@ -5,13 +5,13 @@ scoreboard players set @e[team=BlueData] FlagPresent 0
 scoreboard players set @p[scores={StealsFlag=1},team=Red] CarryingBlueFlag 1
 
 # Physical replacements/effects
-execute at @e[team=BlueData] run setblock ~ ~-1 ~ air replace
+execute at @e[team=BlueData] run setblock ~ ~-1 ~ minecraft:air replace
 execute at @e[team=BlueData] run particle minecraft:smoke ~ ~-1 ~ 0.5 1 0.5 0.15 200
-replaceitem entity @p[scores={StealsFlag=1},team=Red] armor.head blue_banner{BlockEntityTag:{Patterns:[{Pattern:rd,Color:3},{Pattern:sc,Color:0}]}}
+replaceitem entity @p[scores={StealsFlag=1},team=Red] armor.head minecraft:blue_banner{BlockEntityTag:{Patterns:[{Pattern:rd,Color:3},{Pattern:sc,Color:0}]}}
 data merge entity @e[team=BlueData,limit=1] {CustomName:"\"Flag stolen!\"",CustomNameVisible:1b}
 
 # Text
-tellraw @a[team=Blue] [{"selector": "@p[scores={StealsFlag=1}]", "color": "yellow"}, " has ", {"text": "stolen your flag!", "color": "gold"}]
+tellraw @a[team=Blue] [{"selector": "@p[scores={StealsFlag=1},team=Blue]", "color": "yellow"}, " has ", {"text": "stolen your flag!", "color": "gold"}]
 tellraw @a[team=Red,scores={StealsFlag=1}] [{"text": "You've stolen the enemy flag!", "color": "green"}]
 tellraw @a[team=Red,scores={StealsFlag=0}] [{"selector": "@p[scores={StealsFlag=1}]", "color": "yellow"}, " has ", {"text": "stolen the enemy flag!", "color": "green"}]
 

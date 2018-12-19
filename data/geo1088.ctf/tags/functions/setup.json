@@ -2,6 +2,7 @@
   "values": [
     "geo1088.ctf:setup/gamerules",
     "geo1088.ctf:setup/teams",
-    "geo1088.ctf:setup/objectives"
+    "geo1088.ctf:setup/objectives",
+    "geo1088.ctf:setup/loadmsg"
   ]
 }
