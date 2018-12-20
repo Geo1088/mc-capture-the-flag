@@ -1,9 +1,5 @@
 # Capture Red - When the red flag is captured.
 
-# Scoreboard handling
-scoreboard players set @p[scores={CapturesFlag=1},team=Blue] CarryingRedFlag 0
-scoreboard players set @e[team=RedData,limit=1] FlagPresent 1
-
 # Physical replacements/etc
 execute at @e[team=RedData] run setblock ~ ~-1 ~ red_banner{Patterns:[{Pattern:rd,Color:6},{Pattern:sc,Color:0}]} replace
 replaceitem entity @p[scores={CapturesFlag=1},team=Blue] armor.head minecraft:air
@@ -23,6 +19,13 @@ tellraw @a[team=Blue,scores={CapturesFlag=0}] [{"selector": "@p[scores={Captures
 execute as @a[team=Blue] at @s run playsound minecraft:entity.firework.twinkle_far master @s
 execute as @a[team=Blue] at @s run playsound minecraft:entity.player.levelup master @s
 execute as @a[team=Red] at @s run playsound minecraft:entity.generic.explode master @s
+
+# Hook
+execute as @p[team=Red,scores={CapturesFlag=1}] at @s run function #geo1088.ctf:hooks/capture
+
+# Scoreboard handling
+scoreboard players set @p[scores={CapturesFlag=1},team=Blue] CarryingRedFlag 0
+scoreboard players set @e[team=RedData,limit=1] FlagPresent 1
 
 # Done!
 scoreboard players set @p[scores={CapturesFlag=1},team=Blue] CapturesFlag 0

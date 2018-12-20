@@ -2,3 +2,5 @@
 
 # Get rid of ugly /trigger feedback, etc.
 gamerule sendCommandFeedback false
+gamerule keepInventory true
+gamerule showDeathMessages false

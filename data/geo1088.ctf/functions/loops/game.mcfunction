@@ -15,11 +15,17 @@ execute if entity @p[scores={CapturesFlag=1},team=Red] run function geo1088.ctf:
 
 # If a flag is missing and no one has it, return it. (The person carrying it
 # probably died.)
-execute as @e[team=RedData,scores={FlagPresent=0}] at @s if entity @p[scores={CarryingRedFlag=1,Health=0}] run function geo1088.ctf:events/return/red
-execute as @e[team=BlueData,scores={FlagPresent=0}] at @s if entity @p[scores={CarryingBlueFlag=1,Health=0}] run function geo1088.ctf:events/return/blue
+execute as @e[team=RedData,scores={FlagPresent=0}] at @s unless entity @p[scores={CarryingRedFlag=1,IsDead=0}] run function geo1088.ctf:events/return/red
+execute as @e[team=BlueData,scores={FlagPresent=0}] at @s unless entity @p[scores={CarryingBlueFlag=1,IsDead=0}] run function geo1088.ctf:events/return/blue
 
 # Prevent double-clicking the start button from queueing a restart immediately after the game stops
 scoreboard players set @a StartGame 0
+
+# Reset death objective after one tick
+scoreboard players set @a IsDead 0
+
+# Remove banners from the heads of players with 0 health (i.e. just respawned)
+replaceitem entity @a[scores={Health=0}] armor.head minecraft:air
 
 # Hande stop button (normally inaccessible but exists for debugging)
 execute if entity @a[scores={StopGame=1}] run function geo1088.ctf:events/gamestop

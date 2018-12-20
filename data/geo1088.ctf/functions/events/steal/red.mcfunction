@@ -1,9 +1,5 @@
 # Steal Red - When the red flag is stolen.
 
-# Scoreboard handling
-scoreboard players set @e[team=RedData] FlagPresent 0
-scoreboard players set @p[scores={StealsFlag=1},team=Blue] CarryingRedFlag 1
-
 # Physical replacement/effects
 execute at @e[team=RedData] run setblock ~ ~-1 ~ minecraft:air replace
 execute at @e[team=RedData] run particle minecraft:smoke ~ ~-1 ~ 0.5 1 0.5 0.15 200
@@ -19,6 +15,13 @@ tellraw @a[team=Blue,scores={StealsFlag=0}] [{"selector": "@p[scores={StealsFlag
 # TODO: is there an easier way to do sound than this execute thing?
 execute as @a[team=Blue,scores={StealsFlag=1}] at @s run playsound minecraft:entity.experience_orb.pickup master @s
 execute as @a[team=Red] at @s run playsound minecraft:entity.generic.explode master @s
+
+# Hook
+execute as @p[scores={StealsFlag=1},team=Blue] at @s run function #geo1088.ctf:hooks/steal
+
+# Scoreboard handling
+scoreboard players set @e[team=RedData] FlagPresent 0
+scoreboard players set @p[scores={StealsFlag=1},team=Blue] CarryingRedFlag 1
 
 # Done!
 scoreboard players set @p[scores={StealsFlag=1},team=Blue] StealsFlag 0
