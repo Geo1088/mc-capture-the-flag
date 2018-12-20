@@ -1,8 +1,14 @@
 # Capture the Flag
 
-A Minecraft datapack that introduces the mechanics of a traditional Capture the Flag game. Currently being developed in 18w09a because I haven't played in a while and my school blocks update downloads. Forward-compatibility unknown.
+A Minecraft datapack that introduces fully functional Capture the Flag mechanics, extendable with function tag "hooks" and controllable via `/scoreboard` and `/trigger` interfaces.
 
 ## Documentation & Customization
+
+This is not a full map or anything, it's just a datapack that allows you to add CtF to a map. In order to make it a full game, you'll have to use the datapack hooks to do some things:
+
+- Create an interface that allows players to choose their teams and start the game via the commands listed blow (sign board/tellraw in chat/written book with clickEvents, etc.)
+- Use the provided function hooks to keep score and end the game when appropriate
+- Move players to and from the team selection/starting interface and the play area when the game starts/stops (likely via `/tp` commands, again using the function hooks listed below)
 
 Game events can be triggered by setting scoreboard objectives on any player.
 
