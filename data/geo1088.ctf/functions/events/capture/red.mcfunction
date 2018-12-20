@@ -20,7 +20,7 @@ execute as @a[team=Blue] at @s run playsound minecraft:entity.player.levelup mas
 execute as @a[team=Red] at @s run playsound minecraft:entity.generic.explode master @s
 
 # Hook
-execute as @p[team=Red,scores={CapturesFlag=1}] at @s run function #geo1088.ctf:hooks/capture
+execute as @p[team=Blue,scores={CapturesFlag=1}] at @s run function #geo1088.ctf:hooks/capture
 
 # Scoreboard handling
 scoreboard players set @p[scores={CapturesFlag=1},team=Blue] CarryingRedFlag 0
