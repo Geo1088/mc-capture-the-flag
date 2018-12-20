@@ -11,9 +11,8 @@ execute at @e[team=RedData] run particle minecraft:item minecraft:red_wool ~ ~-1
 execute at @e[team=RedData] run particle minecraft:item minecraft:white_wool ~ ~-1 ~ 0 1 0 0.25 50
 
 # Text
-tellraw @a[team=Blue] [{"selector": "@p[scores={CapturesFlag=1}]", "color": "yellow"}, " has ", {"text": "captured your flag!", "color": "gold"}, {"text": " Red Wins!", "color": "red"}]
-tellraw @a[team=Red,scores={CapturesFlag=1}] [{"text": "You've captured the enemy flag!", "color": "green"}, {"text": " Red Wins!", "color": "red"}]
-tellraw @a[team=Red,scores={CapturesFlag=0}] [{"selector": "@p[scores={CapturesFlag=1}]", "color": "yellow"}, " has ", {"text": "captured the enemy flag!", "color": "green"}, {"text": " Red Wins!", "color": "red"}]
+tellraw @a[team=Blue] [{"color": "gold", "text": "> "}, {"selector": "@p[scores={CapturesFlag=1}]", "color": "red"}, {"color": "reset", "text": " has "}, {"text": "captured your flag!", "color": "gold"}]
+tellraw @a[team=Red] [{"color": "green", "text": "> "}, {"selector": "@p[scores={CapturesFlag=1}]", "color": "red"}, {"color": "reset", "text": " has "}, {"text": "captured the enemy flag!", "color": "green"}]
 
 # Sounds
 execute as @a[team=Red] at @s run playsound minecraft:entity.firework.twinkle_far master @s

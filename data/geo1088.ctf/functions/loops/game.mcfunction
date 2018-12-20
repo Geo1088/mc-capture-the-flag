@@ -18,8 +18,11 @@ execute if entity @p[scores={CapturesFlag=1},team=Red] run function geo1088.ctf:
 execute as @e[team=RedData,scores={FlagPresent=0}] at @s unless entity @p[scores={CarryingRedFlag=1,IsDead=0}] run function geo1088.ctf:events/return/red
 execute as @e[team=BlueData,scores={FlagPresent=0}] at @s unless entity @p[scores={CarryingBlueFlag=1,IsDead=0}] run function geo1088.ctf:events/return/blue
 
-# Prevent double-clicking the start button from queueing a restart immediately after the game stops
+# Prevent the use of buttons other than the stop button
 scoreboard players set @a StartGame 0
+scoreboard players set @a JoinsRed 0
+scoreboard players set @a JoinsBlue 0
+scoreboard players set @a JoinsSpecs 0
 
 # Reset death objective after one tick
 scoreboard players set @a IsDead 0

@@ -7,7 +7,6 @@ scoreboard objectives add IsDead deathCount "Player is dead?"
 
 scoreboard objectives add CarryingRedFlag dummy "Has the red flag?"
 scoreboard objectives add CarryingBlueFlag dummy "Has the blue flag?"
-
 scoreboard objectives add StealsFlag dummy "Steals a flag this tick?"
 scoreboard objectives add CapturesFlag dummy "Captures a flag this tick?"
 
@@ -21,3 +20,6 @@ scoreboard objectives add FlagPresent dummy "Flag present?"
 scoreboard objectives add InGame dummy "In game?"
 scoreboard objectives add StartGame trigger "Game starts this tick?"
 scoreboard objectives add StopGame trigger "Game stops this tick?"
+
+# Display
+scoreboard objectives setdisplay list Health

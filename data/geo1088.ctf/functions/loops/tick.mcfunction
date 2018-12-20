@@ -8,5 +8,5 @@ execute unless entity @e[team=GameData,scores={InGame=1}] run function geo1088.c
 # Below are debugging/mapmaking utilities that always run
 
 # Handle placing banners via eggs
-execute as @e[type=minecraft:mooshroom,name="Red Flag"] at @s run function geo1088.ctf:subroutines/initflag/red
-execute as @e[type=minecraft:squid,name="Blue Flag"] at @s run function geo1088.ctf:subroutines/initflag/blue
+execute as @e[type=minecraft:mooshroom,name="Red Flag"] at @s run function geo1088.ctf:events/initflag/red
+execute as @e[type=minecraft:squid,name="Blue Flag"] at @s run function geo1088.ctf:events/initflag/blue
