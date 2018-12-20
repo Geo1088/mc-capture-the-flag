@@ -5,7 +5,7 @@
 function #geo1088.ctf:hooks/gamestop
 
 # Put spectators back into adventure mode
-gamemode adventure @a[team=Spectators]
+gamemode adventure @a[team=Spectators,gamemode=spectator]
 
 # Stop game
 scoreboard players set @e[team=GameData] InGame 0

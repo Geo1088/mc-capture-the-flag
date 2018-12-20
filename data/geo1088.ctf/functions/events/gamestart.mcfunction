@@ -26,7 +26,7 @@ scoreboard players set @a JoinsSpec 0
 function #geo1088.ctf:hooks/gamestart
 
 # Set spectators to spectator mode
-gamemode spectator @a[team=Spectators]
+gamemode spectator @a[team=Spectators,gamemode=adventure]
 
 # Reset trigger and start game
 scoreboard players set @a StartGame 0
